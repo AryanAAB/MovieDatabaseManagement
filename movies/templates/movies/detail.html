@@ -1,0 +1,20 @@
+{% extends "movies/base.html" %}
+{% load static %}
+{% block content %}
+        <img class="detail-img" src = "{% if movie.poster %}{{ movie.poster.url }}{% else %}{% static 'default.png' %}{% endif %}">
+        <h1 class = "detail-title">{{ movie.title }}</h1>
+        <div class="details-container">
+            <div class="detail-row">
+              <span class="highlight">Directed By:</span> <span class="content">{{ movie.director }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="highlight">Release Date:</span> <span class="content">{{ movie.release_date }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="highlight">Genre:</span> <span class="content">{{ movie.genre }}</span>
+            </div>
+            <div class="detail-row">
+              <span class="highlight">Description:</span> <span class="content">{{ movie.description }}</span>
+            </div>
+        </div>
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends "movies/base.html" %}
+{% load static %}
+{% block content %}
+    {% for post in posts %}
+        <article class="media content-section">
+            <div class="media-body">
+            <img class="article-img" src = "{% if post.poster %}{{ post.poster.url }}{% else %}{% static 'default.png' %}{% endif %}">
+            <h2><a class="article-title" href="{% url 'movie-detail' post.id %}">{{ post.title }}</a></h2>
+            </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
